@@ -13,7 +13,7 @@ class PyImageSearchANPR:
 		self.maxAR = maxAR
 		self.debug = debug
 
-def debug_imshow(self, title, image, waitKey=False):
+	def debug_imshow(self, title, image, waitKey=False):
 		# check to see if we are in debug mode, and if so, show the
 		# image with the supplied title
 		if self.debug:
@@ -23,7 +23,7 @@ def debug_imshow(self, title, image, waitKey=False):
 			if waitKey:
 				cv2.waitKey(0)
 
-def locate_license_plate_candidates(self, gray, keep=5):
+	def locate_license_plate_candidates(self, gray, keep=5):
 		# perform a blackhat morphological operation that will allow
 		# us to reveal dark regions (i.e., text) on light backgrounds
 		# (i.e., the license plate itself)
@@ -79,10 +79,9 @@ def locate_license_plate_candidates(self, gray, keep=5):
 		cnts = sorted(cnts, key=cv2.contourArea, reverse=True)[:keep]
 
 		# return the list of contours
-		return 
-        
-def locate_license_plate(self, gray, candidates,
-		clearBorder=False):
+		return cnts
+
+	def locate_license_plate(self, gray, candidates, clearBorder=False):
 		# initialize the license plate contour and ROI
 		lpCnt = None
 		roi = None
@@ -104,7 +103,6 @@ def locate_license_plate(self, gray, candidates,
 				roi = cv2.threshold(licensePlate, 0, 255,
 					cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
 
-
 				# check to see if we should clear any foreground
 				# pixels touching the border of the image
 				# (which typically, not but always, indicates noise)
@@ -121,7 +119,7 @@ def locate_license_plate(self, gray, candidates,
 		# associated with it
 		return (roi, lpCnt)
 
-def build_tesseract_options(self, psm=7):
+	def build_tesseract_options(self, psm=7):
 		# tell Tesseract to only OCR alphanumeric characters
 		alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 		options = "-c tessedit_char_whitelist={}".format(alphanumeric)
@@ -132,10 +130,10 @@ def build_tesseract_options(self, psm=7):
 		# return the built options string
 		return options
 
-def find_and_ocr(self, image, psm=7, clearBorder=False):
+	def find_and_ocr(self, image, psm=7, clearBorder=False):
 		# initialize the license plate text
 		lpText = None
-        
+
 		# convert the input image to grayscale, locate all candidate
 		# license plate regions in the image, and then process the
 		# candidates, leaving us with the *actual* license plate
