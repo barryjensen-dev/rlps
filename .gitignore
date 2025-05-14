@@ -1,2 +1,6 @@
 # Python environment
 env/
+
+# Python cache
+pyimagesearch/__pycache__/
+pyimagesearch/anpr/__pycache__/
