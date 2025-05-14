@@ -1,0 +1,2 @@
+tasks:
+  - init: sudo apt update && sudo apt install -y libgl1
