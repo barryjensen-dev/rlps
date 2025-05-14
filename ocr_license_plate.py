@@ -1,5 +1,5 @@
 # import the necessary packages
-from pyimagesearch.anpr import PyImageSearchANPR
+from pyimagesearch.anpr.anpr import PyImageSearchANPR
 from imutils import paths
 import argparse
 import imutils
