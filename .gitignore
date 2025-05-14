@@ -1,11 +1,14 @@
+# python environment
 env/
-pyimagesearch/__pycache__/
-anpr/__pycache__/
+
+# group1 plates
 license_plates/group1/001.jpg
 license_plates/group1/002.jpg
 license_plates/group1/003.jpg
 license_plates/group1/004.jpg
 license_plates/group1/005.jpg
+
+# group2 plates
 license_plates/group2/001.jpg
 license_plates/group2/002.jpg
 license_plates/group2/003.jpg
