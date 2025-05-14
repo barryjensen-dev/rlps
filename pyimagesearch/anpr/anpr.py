@@ -81,7 +81,7 @@ def locate_license_plate_candidates(self, gray, keep=5):
 		# return the list of contours
 		return 
         
-	def locate_license_plate(self, gray, candidates,
+def locate_license_plate(self, gray, candidates,
 		clearBorder=False):
 		# initialize the license plate contour and ROI
 		lpCnt = None
@@ -121,7 +121,7 @@ def locate_license_plate_candidates(self, gray, keep=5):
 		# associated with it
 		return (roi, lpCnt)
 
-	def build_tesseract_options(self, psm=7):
+def build_tesseract_options(self, psm=7):
 		# tell Tesseract to only OCR alphanumeric characters
 		alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 		options = "-c tessedit_char_whitelist={}".format(alphanumeric)
@@ -132,7 +132,7 @@ def locate_license_plate_candidates(self, gray, keep=5):
 		# return the built options string
 		return options
 
-	def find_and_ocr(self, image, psm=7, clearBorder=False):
+def find_and_ocr(self, image, psm=7, clearBorder=False):
 		# initialize the license plate text
 		lpText = None
         
