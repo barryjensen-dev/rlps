@@ -2,7 +2,7 @@ import json
 
 def reverse_license_plate_search(license_plate):
     # Load the mock database
-    with open("license_plate_database.json", "r") as file:
+    with open("database.json", "r") as file:
         database = json.load(file)
     
     # Search for the license plate in the database
