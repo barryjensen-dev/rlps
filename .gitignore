@@ -1,6 +1,15 @@
-# Python environment
-env/
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
 
-# Python cache
-pyimagesearch/__pycache__/
-pyimagesearch/anpr/__pycache__/
+# Ignore virtual environment
+env/
+venv/
+
+# Ignore output images
+output/
+
+# Ignore log files and temporary files
+*.log
+*.tmp
