@@ -49,7 +49,7 @@ for imagePath in imagePaths:
 		(x, y, w, h) = cv2.boundingRect(lpCnt)
 		cv2.putText(image, cleanup_text(lpText), (x, y - 15),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2)
-		# show the output ANPR image
-		print("[INFO] {}".format(lpText))
-		cv2.imshow("Output ANPR", image)
-		cv2.waitKey(0)
+		# save the output image (since cv2.imshow does not work in headless environments)
+		output_path = f"output_{imagePath.split('/')[-1]}"
+		cv2.imwrite(output_path, image)
+		print(f"[INFO] Output saved to {output_path}")
