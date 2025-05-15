@@ -1,5 +1,6 @@
 # Import the necessary packages
 from pyimagesearch.anpr.anpr import PyImageSearchANPR
+from reverse_lookup import reverse_license_plate_search
 from imutils import paths
 import argparse
 import imutils
@@ -53,3 +54,16 @@ for imagePath in imagePaths:
         output_path = f"output_{imagePath.split('/')[-1]}"
         cv2.imwrite(output_path, image)
         print(f"[INFO] Output saved to {output_path}")
+        
+        # Perform reverse lookup
+        lookup_result = reverse_license_plate_search(lpText)
+        
+        # Print reverse lookup result
+        if "error" in lookup_result:
+            print(f"[INFO] Reverse lookup failed: {lookup_result['error']}")
+        else:
+            print(f"[INFO] Reverse Lookup Result for {lpText}:")
+            print(f"  Make: {lookup_result['make']}")
+            print(f"  Model: {lookup_result['model']}")
+            print(f"  Year: {lookup_result['year']}")
+            print(f"  Owner: {lookup_result['owner']}")
