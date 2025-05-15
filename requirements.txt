@@ -3,3 +3,5 @@ imutils
 scikit-image
 numpy
 pytesseract
+requests
+bs4
