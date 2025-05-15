@@ -14,14 +14,10 @@ class PyImageSearchANPR:
 		self.debug = debug
 
 	def debug_imshow(self, title, image, waitKey=False):
-		# check to see if we are in debug mode, and if so, show the
+		# check to see if we are in debug mode, and if so, save the
 		# image with the supplied title
 		if self.debug:
-			cv2.imshow(title, image)
-
-			# check to see if we should wait for a keypress
-			if waitKey:
-				cv2.waitKey(0)
+			cv2.imwrite(f"{title}.jpg", image)
 
 	def locate_license_plate_candidates(self, gray, keep=5):
 		# perform a blackhat morphological operation that will allow
@@ -67,7 +63,6 @@ class PyImageSearchANPR:
 		# light regions of the image
 		thresh = cv2.bitwise_and(thresh, thresh, mask=light)
 		thresh = cv2.dilate(thresh, None, iterations=2)
-		thresh = cv2.erode(thresh, None, iterations=1)
 		self.debug_imshow("Final", thresh, waitKey=True)
 
 		# find contours in the thresholded image and sort them by
